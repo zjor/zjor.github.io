@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="ngAnimate">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+
+        .item.ng-enter {
+            -webkit-transition: 1s linear all; /* Chrome */
+            transition: 1s linear all;
+            opacity: 0;
+        }
+
+        /* The finishing CSS styles for the enter animation */
+        .item.ng-enter.ng-enter-active {
+            opacity: 1;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div class="card" ng-init="items=['One', 'Two', 'Three']">
+                <div class="card-content">
+                    <span class="card-title">List animation</span>
+                    <p>
+                        Demonstrates animation during list modification
+                    </p>
+
+                    <div class="row">
+                        <div class="col s8">
+                            <input type="text" ng-model="newItem">
+                        </div>
+                        <div class="col s2">
+                            <button class="btn" ng-click="items.unshift(newItem); newItem='';">Add</button>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li ng-repeat="item in items" class="item">{{item}}</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>
