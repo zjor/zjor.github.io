@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>HTML5: Drag-n-Drop and FileReader Example</title>
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+	<!--[if lt IE 9]>
+	    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+	<![endif]-->
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/jsrender.min.js"></script>
+	<style>
+		img {
+			vertical-align: text-bottom;
+		}
+
+		.tile-container {
+			margin: 4px;
+		}
+
+		.tile:hover {
+			background: #E1F5FE;
+			outline: 2px solid #03A9F4;
+			outline-radius: 4px;
+		}
+
+		.tile img {		
+			width: 150px;
+			height: 150px;			
+			margin: 8px;
+			background: #f4f4f4;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		}
+
+		.tile .filename {
+			text-align: center;
+			padding-bottom: 8px;
+		}
+
+		#dropzone {
+			margin: 4px;
+			float: left;
+			width: 166px;
+			height: 166px;
+			border: dashed 3px darkgrey;
+			border-radius: 6px;
+			display: inline-block;
+			text-align: center;
+			font-size: 48px;
+			font-weight: bold;
+			color: darkgrey;
+			line-height: 150px;
+		}
+
+		#dropzone.active {
+			border: dashed 3px green;
+			color: green;
+		}
+
+		#preview-container .tile-container {
+			float: left;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/simonwhitaker/github-fork-ribbon-css">Fork me on GitHub</a>
+        </div>
+    </div>
+
+	<div class="container">
+		<h1>HTML5: Drag-n-Drop and FileReader Example</h1>
+		<hr/>
+		<div id="preview-container">
+			<div id="dropzone">+</div>
+		</div>
+	</div>	
+
+	<script id="image-item" type="text/x-jsrender">
+		<div class="tile-container">
+			<div class="tile">
+				<img src="{{:image}}"/>
+				<div class="filename">{{:filename}}</div>
+			</div>
+		</div>
+	</script>
+
+	<script>
+	$(function() {
+		var dz = $('#dropzone');
+		var tmpl = $.templates('#image-item');
+
+		dz.on('dragover', function() {
+			this.className = 'active';
+			return false;
+		});
+
+		dz.on('dragleave', function() {this.className = '';});
+
+		dz.on('dragend', function() {
+ 			this.className = ''; 
+ 			return false;
+		});
+
+		dz.on('drop', function(e) {
+			this.className = '';
+			e = e.originalEvent;
+			e.preventDefault();
+			Array.prototype.slice.call(e.dataTransfer.files).forEach(function(file) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#preview-container').append(tmpl({image: e.target.result, filename: file.name}));
+				}
+				reader.readAsDataURL(file);			
+			});			
+			return false;
+		});
+	});
+
+	</script>
+</body>
+</html>
