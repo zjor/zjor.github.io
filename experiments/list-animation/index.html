@@ -15,11 +15,13 @@
             -webkit-transition: 1s linear all; /* Chrome */
             transition: 1s linear all;
             opacity: 0;
+            max-height: 0;
         }
 
         /* The finishing CSS styles for the enter animation */
         .item.ng-enter.ng-enter-active {
             opacity: 1;
+            max-height: 500px;
         }
 
     </style>
@@ -39,12 +41,9 @@
                     </p>
 
                     <div class="row">
-                        <div class="col s8">
-                            <input type="text" ng-model="newItem">
-                        </div>
-                        <div class="col s2">
-                            <button class="btn" ng-click="items.unshift(newItem); newItem='';">Add</button>
-                        </div>
+                        <button class="btn col s3" ng-click="items.push(newItem); newItem='';">Append</button>
+                        <input type="text" ng-model="newItem" class="col s6">
+                        <button class="btn col s3" ng-click="items.unshift(newItem); newItem='';">Prepend</button>
                     </div>
 
                     <ul>
