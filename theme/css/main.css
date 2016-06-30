@@ -194,6 +194,10 @@ article.summary > div {
   margin-left: 28%;
 }
 
+.metadata {
+  display: none;
+}
+
 article.full .metadata,
 article.summary .metadata {
   padding: 1%;  

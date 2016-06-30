@@ -14,6 +14,16 @@
 	
 <body>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1400782916842993";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
     <div class="container">
 	  
 	  <header role="banner">
@@ -90,8 +100,8 @@ to reduce number of pins and simplify control.</p>
 </pre></div>
 
 
-<p>Final result should look like this.
-<img alt="Final result" src="/static/images/pixel_control.jpg" /></p>
+<p>Final result should look like this.</p>
+<p><img alt="Final result" src="/static/images/pixel_control.jpg" /></p>
 <h2>The Game of Life</h2>
 <p>Now let's do something more interesting and implement <a href="https://en.wikipedia.org/wiki/The_Game_of_Life">the game of life</a>.
 The source code can be found <a href="https://github.com/zjor/arduino/blob/master/the_game_of_life/the_game_of_life.ino">here</a>.
@@ -147,7 +157,6 @@ There are several configurations changing one another thus forming beautiful ani
 	                <li><a href="http://getpelican.com/">Pelican</a></li>
 	                <li><a href="http://python.org/">Python.org</a></li>
 	                <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-	                <li><a href="#">You can modify those links in your config file</a></li>
 	            </ul>
 	          </aside>
 
