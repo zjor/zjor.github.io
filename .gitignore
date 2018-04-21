@@ -24,7 +24,7 @@ build
 out
 
 # Jekyll files
-#_site
-#.sass-cache
-#.jekyll-metadata
+_site
+.sass-cache
+.jekyll-metadata
 
