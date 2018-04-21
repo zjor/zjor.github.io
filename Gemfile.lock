@@ -58,6 +58,7 @@ DEPENDENCIES
   jekyll (= 3.5.2)
   jekyll-feed (~> 0.6)
   minima (~> 2.0)
+  public_suffix (= 3.0.2)
   tzinfo-data
 
 BUNDLED WITH
