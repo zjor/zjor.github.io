@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello LED matrix display
+comments: true
 date: 2016-06-18
 categories: arduino
 ---

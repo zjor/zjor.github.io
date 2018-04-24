@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Snake Game
+comments: true
 date: 2016-06-14
 categories: arduino
 ---
